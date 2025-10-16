@@ -1,5 +1,14 @@
+// Fonction qui convertit Celsius en Fahrenheit
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
 
-let celsius = 25; // température en °C
-let fahrenheit = (celsius * 9 / 5) + 32; // En Fahrenheit, l’eau gèle à 32°F.
-console.log(fahrenheit);
+// Exemple d'utilisation
+let temperatureC = 25;
+let temperatureF = celsiusToFahrenheit(temperatureC);
+console.log(temperatureC + "°C équivaut à " + temperatureF + "°F");
 
+// Export de la fonction pour pouvoir l'utiliser dans d'autres fichiers
+module.exports = {
+ celsiusToFahrenheit,
+};

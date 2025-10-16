@@ -1,73 +1,64 @@
+// Exercice 8
 
-// 1. Salaire mensuel
-let salaireMensuel = 500;
+const salaireMensuel = 500; // Salaire
 
-// 2. Loyer (30% du salaire)
-let loyer = salaireMensuel * 0.30;
+// Dépenses
+const loyer = salaireMensuel * 0.30;       // 30% du salaire
+const nourriture = salaireMensuel * 0.20;  // 20% du salaire
+const transport = salaireMensuel * 0.10;   // 10% du salaire
 
-// 3. Nourriture (20% du salaire)
-let nourriture = salaireMensuel * 0.20;
-
-// 4. Transport (10% du salaire)
-let transport = salaireMensuel * 0.10;
-
-// 5. Autres dépenses (50 + 25)
 let autresDepenses = 50;
-autresDepenses = autresDepenses + 25;
+autresDepenses += 25; // Résultat final apres initialisation: 75
 
-// 6. Total des dépenses
+// Total des dépenses
 let totalDepenses = loyer + nourriture + transport + autresDepenses;
-
-// 7. Reste
 let reste = salaireMensuel - totalDepenses;
 
-// 8. Vérification budget
+// Vérification du budget
 if (reste >= 100) {
-    console.log("Budget bien géré");
+  console.log("Le budget est bien géré");
 } else {
-    console.log("Attention, budget serré");
+  console.log("Attention, budget serré");
 }
 
-// 9. Ajouter loisirs (15% du salaire)
+// Ajout des loisirs
 let loisirs = salaireMensuel * 0.15;
-totalDepenses = loyer + nourriture + transport + autresDepenses + loisirs;
-reste = salaireMensuel - totalDepenses;
+let totalDepensesRecalcule = totalDepenses + loisirs;
+let resteRecalcule = salaireMensuel - totalDepensesRecalcule;
 
-// 10. Pourcentages
+// Calcul des pourcentages
 let pourcentageLoyer = (loyer / salaireMensuel) * 100;
 let pourcentageNourriture = (nourriture / salaireMensuel) * 100;
 let pourcentageTransport = (transport / salaireMensuel) * 100;
-let pourcentageAutres = (autresDepenses / salaireMensuel) * 100;
 let pourcentageLoisirs = (loisirs / salaireMensuel) * 100;
+let pourcentageAutresDepenses = (autresDepenses / salaireMensuel) * 100;
 
-console.log("Salaire Mensuel :", salaireMensuel);
-console.log("Loyer :", loyer, "(", pourcentageLoyer, "% )");
-console.log("Nourriture :", nourriture, "(", pourcentageNourriture, "% )");
-console.log("Transport :", transport, "(", pourcentageTransport, "% )");
-console.log("Autres Dépenses :", autresDepenses, "(", pourcentageAutres, "% )");
-console.log("Loisirs :", loisirs, "(", pourcentageLoisirs, "% )");
-console.log("Total Dépenses :", totalDepenses);
-console.log("Reste :", reste);
+// Affichage des résultats
+console.log("Loyer :", pourcentageLoyer + "%");
+console.log("Nourriture :", pourcentageNourriture + "%");
+console.log("Transport :", pourcentageTransport + "%");
+console.log("Loisirs :", pourcentageLoisirs + "%");
+console.log("Autres Dépenses :", pourcentageAutresDepenses + "%");
 
-// 11. Augmentation de 10% du salaire
-salaireMensuel = salaireMensuel * 1.10;
+// Totaux révisés
+let totalDepenses_revise = totalDepenses + loisirs;
+let reste_revise = salaireMensuel - totalDepenses_revise;
 
-// Recalculer toutes les valeurs
-loyer = salaireMensuel * 0.30;
-nourriture = salaireMensuel * 0.20;
-transport = salaireMensuel * 0.10;
-loisirs = salaireMensuel * 0.15;
-totalDepenses = loyer + nourriture + transport + autresDepenses + loisirs;
-reste = salaireMensuel - totalDepenses;
 
-// 12. Vérifier si dépenses > 90%
-if (totalDepenses > (salaireMensuel * 0.90)) {
-    console.log("Dépenses trop élevées, réduisez vos charges");
-} else {
-    console.log("Budget sous contrôle après augmentation");
-}
-
-console.log("Nouveau salaire :", salaireMensuel);
-console.log("Total Dépenses :", totalDepenses);
-console.log("Reste :", reste);
-
+module.exports = {
+  salaireMensuel,
+  loyer,
+  nourriture,
+  transport,
+  autresDepenses,
+  loisirs,
+  totalDepenses,
+  reste,
+  totalDepenses_revise,
+  reste_revise,
+  pourcentageLoyer,
+  pourcentageNourriture,
+  pourcentageTransport,
+  pourcentageLoisirs,
+  pourcentageAutresDepenses
+};
