@@ -1,45 +1,39 @@
-// Total du patrimoine
-let maison = 60000000;
-let terrains = 40000000;
-let liquidites = 20000000;
+const coutMaisonFamiliale = 60000000;
+const coutTerrains = 40000000;
+const liquidites = 20000000;
+let sommeHeritage = coutMaisonFamiliale + coutTerrains + liquidites;
 
-let totalPatrimoine = maison + terrains + liquidites;
+let heritageCat1 = sommeHeritage * 0.75;
+let heritageCat2 = sommeHeritage * 0.25;
 
-// --- Première catégorie : enfants (75%) ---
-let partEnfants = totalPatrimoine * 0.75; // 75%
-let partParEnfant = partEnfants / 3; // 3 parts (Paul, Marie, Alain)
+// les heritiers de la 1ere categorie
+let paul = heritageCat1/3;
+let marie = heritageCat1/3;
+let alain = heritageCat1/3;
+let eric = alain/2;//l'heritier du defunt de Alain
+let clair = alain/2;//l'heritier du defunt de Alain
 
-// Paul
-let partPaul = partParEnfant;
+// les heritiers de la 2e categorie
+let madameMukuna = heritageCat2 * 1/3;
+let joseph = heritageCat2 * 1/3;
+let sarah = heritageCat2 * 1/3;
 
-// Marie
-let partMarie = partParEnfant;
+// affichage des resultats sur l'heritage de chacun
 
-// Alain (décédé, ses enfants partagent sa part)
-let partAlain = partParEnfant;
-let partEric = partAlain / 2;
-let partClaire = partAlain / 2;
+console.log("Heritage de Paul : " + paul);
+console.log("Heritage de Marie : " + marie);
+console.log("Heritage de Eric : " + eric);
+console.log("Heritage de Clair : " + clair);
+console.log("Heritage de Madame Mukuna : " + madameMukuna);
+console.log("Heritage de Joseph : " + joseph);
+console.log("Heritage de Sarah : " + sarah);
 
-// --- Deuxième catégorie : conjoint + frères (25%) ---
-let partConjointFreres = totalPatrimoine * 0.25; // 25%
-let partParMembre = partConjointFreres / 3; // 3 parts (épouse, Joseph, Sarah)
-
-// Madame MUKUNA (épouse)
-let partMadame = partParMembre;
-
-// Joseph (frère vivant)
-let partJoseph = partParMembre;
-
-// Sarah (nièce, représente Daniel)
-let partSarah = partParMembre;
-
-// --- Affichage ---
-console.log("Répartition de l'héritage :");
-console.log("Paul :", partPaul, "CDF");
-console.log("Marie :", partMarie, "CDF");
-console.log("Éric :", partEric, "CDF");
-console.log("Claire :", partClaire, "CDF");
-console.log("Madame MUKUNA :", partMadame, "CDF");
-console.log("Joseph :", partJoseph, "CDF");
-console.log("Sarah :", partSarah, "CDF");
-
+module.exports = {
+    paul,
+    marie,
+    eric,
+    clair,
+    madameMukuna,
+    joseph,
+    sarah,
+}
